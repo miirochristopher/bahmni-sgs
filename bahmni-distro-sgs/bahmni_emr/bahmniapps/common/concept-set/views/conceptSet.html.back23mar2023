@@ -1,0 +1,550 @@
+<form novalidate>
+    <div ng-if="::showEmptyConceptSetMessage" class="placeholder-text">{{::conceptSetName}} {{ 'CONCEPT_NOT_FOUND_MESSAGE'|translate }}</div>
+
+    <concept concept-set-required="conceptSetRequired" root-observation="rootObservation" patient="::patient" observation="rootObservation" at-least-one-value-is-set="atLeastOneValueIsSet" show-title="::showTitleValue" collapse-inner-sections="collapseInnerSections" ng-if="!rootObservation.hidden" concept-set-name="::conceptSetName" hide-abnormal-button="hideAbnormalButton">
+    </concept>
+
+</form>
+<script>
+const suzuma = document.getElementById("concept-set-6f225744-8d0a-7770-14e7-ed4060410a9b");
+if (suzuma) {
+    let scoreOne = 0;
+    let scoreTwo = 0;
+    let scoreThree = 0;
+    let scoreFour = 0;
+    let scoreFive = 0;
+    let scoreSix = 0;
+    let scoreSeven = 0;
+    let scoreEight = 0;
+    let scoreNine = 0;
+    let scoreTen = 0;
+    let totalScore = 0;
+    
+    let qOne = 'How many household members are 14-years-old or younger?';
+    let qOneAnswers = '{ "Five or more": "0", "Four": "11", "Three": "14", "Two": "16", "One": "23", "NONE": "32" }';
+    let qTwo = 'What is the highest educational level that the female head/spouse has reached?';
+    let qTwoAnswers = '{ "None, pre-school, or literacy program": "0", "Primary school": "6", "No female head/spouse, common cycle, or no data": "10", "Diversified or higher": "14" }';
+    let qThree = 'What is the main occupation of the male head/spouse?';
+    let qThreeAnswers = '{ "No data or no main occupation": "0", "Farmer, rancher, agricultural worker, or no male head/spouse": "9", "Shop owner, salesperson, service worker, transport and storage operator, or worker in textiles, construction, mechanics, graphics, chemicals, food processing, etc.": "11", "Office worker, transportation operator, professional. Technician, director. Manager, administrator, or related job": "16" }';
+    let qFour = 'How many household members receive a salary in their main occupation?';
+    let qFourAnswers = '{ "NONE": "0", "One": "3", "Two or More": "10" }';
+    let qFive = 'How many rooms does the household use as bedrooms?';
+    let qFiveAnswers = '{ "One": "0", "Two": "1", "Three": "4", "Four or more": "5" }';
+    let qSix = 'What is the main construction material of the floors of the residence?';
+    let qSixAnswers = '{ "Dirt, other, or no data": "0", "Mud bricks, poured concrete, or wood": "3", "Cement bricks": "4", "Ceramic tile or granite": "7" }';
+    let qSeven = 'What is the household’s source of water?';
+    let qSevenAnswers = '{ "Not public network": "0", "Public network": "3"}';
+    let qEight = 'Does any household member have a working refrigerator?';
+    let qEightAnswers = '{ "False": "0", "True": "4"}';
+    let qNine = 'Does any household member have a working stove with four burners?';
+    let qNineAnswers = '{ "False": "0", "True": "5"}';
+    let qTen = 'Does any household member have a working television with or without cable?';
+    let qTenAnswers = '{ "False": "0", "Yes, without cable": "2", "Yes, with cable": "4"}';
+    let qEleven = '';
+    let qElevenAnswer = '{}';
+
+    const wrapper = document.getElementById("concept-set-6f225744-8d0a-7770-14e7-ed4060410a9b");
+    wrapper.addEventListener('click', (event) => {
+        const isButton = event.target.nodeName === 'BUTTON';
+        if (!isButton) {
+            return;
+        }
+        let questionStr = event.target.closest('fieldset').getElementsByTagName('label')[0].innerHTML.split("<")[1];
+        let question = questionStr.substring(questionStr.lastIndexOf(">") + 1)
+        let button = event.target.title;
+
+        if (question.trim() === qOne) {
+            scoreOne = +JSON.parse(qOneAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            document.querySelector("fieldset:last-of-type").querySelector("input").value = totalScore;
+        }
+        if (question.trim() === qTwo) {
+            scoreTwo = +JSON.parse(qTwoAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            document.querySelector("fieldset:last-of-type").querySelector("input").value = totalScore;
+        }
+        if (question.trim() === qThree) {
+            scoreThree = +JSON.parse(qThreeAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            document.querySelector("fieldset:last-of-type").querySelector("input").value = totalScore;
+        }
+        if (question.trim() === qFour) {
+            scoreFour = +JSON.parse(qFourAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            document.querySelector("fieldset:last-of-type").querySelector("input").value = totalScore;
+        }
+        if (question.trim() === qFive) {
+            scoreFive = +JSON.parse(qFiveAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            document.querySelector("fieldset:last-of-type").querySelector("input").value = totalScore;
+        }
+        if (question.trim() === qSix) {
+            scoreSix = +JSON.parse(qSixAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            document.querySelector("fieldset:last-of-type").querySelector("input").value = totalScore;
+        }
+        if (question.trim() === qSeven) {
+            scoreSeven = +JSON.parse(qSevenAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            document.querySelector("fieldset:last-of-type").querySelector("input").value = totalScore;
+        }
+        if (question.trim() === qEight) {
+            scoreEight = +JSON.parse(qEightAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            document.querySelector("fieldset:last-of-type").querySelector("input").value = totalScore;
+        }
+        if (question.trim() === qNine) {
+            scoreNine = +JSON.parse(qNineAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            document.querySelector("fieldset:last-of-type").querySelector("input").value = totalScore;
+        }
+        if (question.trim() === qTen) {
+            scoreTen = +JSON.parse(qTenAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            document.querySelector("fieldset:last-of-type").querySelector("input").value = totalScore;
+        }
+    })
+}
+</script>
+
+<script>
+const ppiEcuador = document.getElementById("concept-set-ed5cad7e-8266-570b-a27c-90d3e51c2452");
+if (ppiEcuador) {
+    let scoreOne = 0;
+    let scoreTwo = 0;
+    let scoreThree = 0;
+    let scoreFour = 0;
+    let scoreFive = 0;
+    let scoreSix = 0;
+    let scoreSeven = 0;
+    let scoreEight = 0;
+    let scoreNine = 0;
+    let scoreTen = 0;
+    let totalScore = 0;
+    
+    let qOne = 'How many members does the household have?';
+    let qOneAnswers = '{ "Six or More": "0", "Five": "9", "Four": "16", "Three": "25", "Two": "32", "One": "40" }';
+    let qTwo = 'How many members household 12 years old or older have an activated cellular telephone?';
+    let qTwoAnswers = '{ "Three or more": "11", "Two": "7", "One": "3", "NONE": "0" }';
+    let qThree = 'Does the household have a car (for its exclusive use),air conditioner,video camera, or exercise machine?';
+    let qThreeAnswers = '{ "No": "0", "Yes": "100" }';
+    let qFour = 'What is the main construction materials of the floor of the residence?';
+    let qFourAnswers = '{ "Dirt ": "0", "Untreated planks or reeds": "4", "Cement/bricks": "5", "Ceramic tile or granite": "8" }';
+    let qFive = 'Does the household have a place with running water to take a bath or shower?';
+    let qFiveAnswers = '{ "No": "0", "Yes": "3" }';
+    let qSix = 'Is the bathroom inside the residence?';
+    let qSixAnswers = '{ "No": "0", "Yes": "4" }';
+    let qSeven = 'Does the household have a blender, waffle iron/sandwich grill, or electric mixer?';
+    let qSevenAnswers = '{ "No": "0", "Only blender": "3" , "Waffle iron/sandwich grill, or electric mixer(regardless or blender)": "8" }';
+    let qEight = 'Does the household have an iron?';
+    let qEightAnswers = '{ "No": "0", "Yes": "5"}';
+    let qNine = 'How many color or plasma/LCD?LED televisions does the household have?';
+    let qNineAnswers = '{ "Two or More": "10", "One": "5", "NONE": "0" }';
+    let qTen = 'How many light bulbs does the household use?';
+    let qTenAnswers = '{ "None, One or Two": "0", "Three": "1", "Four": "2" , "Five": "4", "Six or Seven": "6", "Eight or More": "10"}';
+
+    const wrapper = document.getElementById("concept-set-ed5cad7e-8266-570b-a27c-90d3e51c2452");
+    wrapper.addEventListener('click', (event) => {
+        const isButton = event.target.nodeName === 'BUTTON';
+        if (!isButton) {
+            return;
+        }
+        let questionStr = event.target.closest('fieldset').getElementsByTagName('label')[0].innerHTML.split("<")[1];
+        let question = questionStr.substring(questionStr.lastIndexOf(">") + 1)
+        let button = event.target.title;
+
+        if (question.trim() === qOne) {
+            scoreOne = +JSON.parse(qOneAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            document.querySelector("fieldset:last-of-type").querySelector("input").value = totalScore;
+        }
+        if (question.trim() === qTwo) {
+            scoreTwo = +JSON.parse(qTwoAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            document.querySelector("fieldset:last-of-type").querySelector("input").value = totalScore;
+        }
+        if (question.trim() === qThree) {
+            scoreThree = +JSON.parse(qThreeAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            document.querySelector("fieldset:last-of-type").querySelector("input").value = totalScore;
+        }
+        if (question.trim() === qFour) {
+            scoreFour = +JSON.parse(qFourAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            document.querySelector("fieldset:last-of-type").querySelector("input").value = totalScore;
+        }
+        if (question.trim() === qFive) {
+            scoreFive = +JSON.parse(qFiveAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            document.querySelector("fieldset:last-of-type").querySelector("input").value = totalScore;
+        }
+        if (question.trim() === qSix) {
+            scoreSix = +JSON.parse(qSixAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            document.querySelector("fieldset:last-of-type").querySelector("input").value = totalScore;
+        }
+        if (question.trim() === qSeven) {
+            scoreSeven = +JSON.parse(qSevenAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            document.querySelector("fieldset:last-of-type").querySelector("input").value = totalScore;
+        }
+        if (question.trim() === qEight) {
+            scoreEight = +JSON.parse(qEightAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            document.querySelector("fieldset:last-of-type").querySelector("input").value = totalScore;
+        }
+        if (question.trim() === qNine) {
+            scoreNine = +JSON.parse(qNineAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            document.querySelector("fieldset:last-of-type").querySelector("input").value = totalScore;
+        }
+        if (question.trim() === qTen) {
+            scoreTen = +JSON.parse(qTenAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            document.querySelector("fieldset:last-of-type").querySelector("input").value = totalScore;
+        }
+    })
+}
+</script>
+
+<script>
+/*
+ * 1. all script regarding with sf-12 in either promms and clinical visit (surgion) 
+*/
+ const sf_12_InClinicVisit = document.getElementById("concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26");
+ if (sf_12_InClinicVisit) {
+    let scoreOne = 0;
+    let scoreTwo = 0;
+    let scoreThree = 0;
+    let scoreFour = 0;
+    let scoreFive = 0;
+    let scoreSix = 0;
+    let scoreSeven = 0;
+    let scoreEight = 0;
+    let scoreNine = 0;
+    let scoreTen = 0;
+    let scoreEleven = 0;
+    let scoreTwelve = 0;
+    let totalScore = 0;
+
+    let qOne = 'In general, would you say your health is';
+    let qOneAnswers = '{"Excellent":"1", "Very Good":"2", "Good":"3", "Fair":"4", "Poor":"5"}';
+    let qTwo = 'MODERATE ACTIVITIES';
+    let qTwoAnswers = '{"Yes, Limited A Lot" : "1","Yes, Limited A Little" : "2","No, Not Limited At All" : "3"}';
+    let qThree = 'Climbing SEVERAL flights of stairs';
+    let qThreeAnswers = '{ "Yes, Limited A Lot" : "1","Yes, Limited A Little" : "2","No, Not Limited At All" : "3" }';
+    let qFour = 'ACCOMPLISHED LESS than you would like:';
+    let qFourAnswers = '{"Yes" : "1", "No" : "2" }';
+    let qFive = 'Were limited in the KIND of work or other activities;';
+    let qFiveAnswers = '{ "Yes" : "1", "No" : "2" }';
+    let qSix = 'ACCOMPLISHED LESS than you would like';
+    let qSixAnswers = '{ "Yes" : "1", "No" : "2"  }';
+    let qSeven = 'Didn’t do work or other activities as CAREFULLY as usual';
+    let qSevenAnswers = '{ "Yes" : "1", "No" : "2" }';
+    let qEight = 'During the PAST 4 WEEKS, how much did PAIN interfere with your normal work (including both work outside the home and housework)?';
+    let qEightAnswers = '{ "NOT AT ALL" : "1", "A Little Bit" : "2", "MODERATELY" : "3", "QUITE A BIT" : "4", "EXTREMELY" :"5"}';
+    let qNine = 'Have you felt calm and peaceful?';
+    let qNineAnswers = '{  "All of the Time" : "1", "Most of the Time" : "2", "A Good Bit of the Time" : "3", "Some of the Time" : "4", "A Little of the Time" : "5", "None of the Time" : "6"}';
+    let qTen = 'Did you have a lot of energy?';
+    let qTenAnswers = '{ "All of the Time" : "1", "Most of the Time" : "2", "A Good Bit of the Time" : "3", "Some of the Time" : "4", "A Little of the Time" : "5", "None of the Time" : "6"}';
+    let qEleven ='Have you felt downhearted and blue?';
+    let qElevenAnswers= '{"All of the Time" : "1", "Most of the Time" : "2", "A Good Bit of the Time" : "3", "Some of the Time" : "4", "A Little of the Time" : "5", "None of the Time" : "6"}';
+    let qTwelve = 'During the PAST 4 WEEKS, how much of the time has your PHYSICAL HEALTH OR EMOTIONAL PROBLEMS interfered with your social activities?';
+    let qTwelveAnswers = '{"All of the Time" : "1", "Most of the Time" : "2", "A Good Bit of the Time" : "3", "Some of the Time" : "4", "A Little of the Time" : "5", "None of the Time" : "6"}';
+    const wrapper = document.getElementById("concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26");
+    wrapper.addEventListener('click', (event) => {
+        const isButton = event.target.nodeName === 'BUTTON';
+        if (!isButton) {
+            return;
+        }
+	let questionStr = event.target.closest('fieldset').getElementsByTagName('label')[0].innerHTML.split("<")[1];
+        let question = questionStr.substring(questionStr.lastIndexOf(">") + 1)
+        let button = event.target.title;
+
+        if (question.trim() === qOne) {
+            scoreOne = +JSON.parse(qOneAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen + scoreEleven + scoreTwelve;
+            $( "#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).eq(-2).val(totalScore).trigger("change");
+        }
+	if (question.trim() === qTwo) {
+            scoreTwo = +JSON.parse(qTwoAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen + scoreEleven + scoreTwelve;
+            $( "#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).eq(-2).val(totalScore).trigger("change");
+        }
+	if (question.trim() === qThree) {
+            scoreThree = +JSON.parse(qThreeAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen + scoreEleven + scoreTwelve;
+            $( "#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).eq(-2).val(totalScore).trigger("change");
+        }
+	if (question.trim() === qFour) {
+            scoreFour = +JSON.parse(qFourAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen + scoreEleven + scoreTwelve;
+            $( "#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).eq(-2).val(totalScore).trigger("change");
+        }
+	if (question.trim() === qFive) {
+            scoreFive = +JSON.parse(qFiveAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen + scoreEleven + scoreTwelve;
+            $( "#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).eq(-2).val(totalScore).trigger("change");
+        }
+	if (question.trim() === qSix) {
+            scoreSix = +JSON.parse(qSixAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen + scoreEleven + scoreTwelve;
+            $( "#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).eq(-2).val(totalScore).trigger("change");
+        }
+	if (question.trim() === qSeven) {
+            scoreSeven = +JSON.parse(qSevenAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen + scoreEleven + scoreTwelve;
+            $( "#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).eq(-2).val(totalScore).trigger("change");
+        }
+	if (question.trim() === qEight) {
+            scoreEight = +JSON.parse(qEightAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen + scoreEleven + scoreTwelve;
+            $( "#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).eq(-2).val(totalScore).trigger("change");
+        }
+	if (question.trim() === qNine) {
+            scoreNine = +JSON.parse(qNineAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen + scoreEleven + scoreTwelve;
+            $( "#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).eq(-2).val(totalScore).trigger("change");
+        }
+	if (question.trim() === qTen) {
+            scoreTen = +JSON.parse(qTenAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen + scoreEleven + scoreTwelve;
+            $( "#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).eq(-2).val(totalScore).trigger("change");
+        }
+	if (question.trim() === qEleven) {
+            scoreEleven = +JSON.parse(qElevenAnswers)[button];
+	    totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen + scoreEleven + scoreTwelve;
+            $( "#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).eq(-2).val(totalScore).trigger("change");
+        }
+	if (question.trim() === qTwelve) {
+            scoreTwelve = +JSON.parse(qTwelveAnswers)[button];
+	    totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen + scoreEleven + scoreTwelve;
+            $( "#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).eq(-2).val(totalScore).trigger("change");
+        }
+    })
+}
+
+</script>
+
+<script>
+/*
+ * Script regarding with CDC Tool in either promms and clinical visit (surgion)
+*/
+ const cdc_tool_form = document.getElementById("concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26");
+ if (cdc_tool_form){
+	$("#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).eq(-6).change(calculateCDC);
+	$("#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).eq(-5).change(calculateCDC);
+	console.log("Start to work in");
+	function calculateCDC(event){
+	  alert("Am In: "+event.target.value)
+	  var initial = $("#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).eq(-3).val();
+	  if(!$("#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).eq(-3).val()){
+	     initial = 0;
+	  }
+	  initial = parseInt(initial) + parseInt(event.target.value)
+	  $("#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).eq(-3).val(initial).trigger("change");
+	}
+ }
+</script>
+
+<script>
+ // will configure to grab all data
+ const ppiEcuadorInClinicVisit = document.getElementById("concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26");
+ if (ppiEcuadorInClinicVisit) {
+    let scoreOne = 0;
+    let scoreTwo = 0;
+    let scoreThree = 0;
+    let scoreFour = 0;
+    let scoreFive = 0;
+    let scoreSix = 0;
+    let scoreSeven = 0;
+    let scoreEight = 0;
+    let scoreNine = 0;
+    let scoreTen = 0;
+    let totalScore = 0;
+
+    let qOne = 'How many members does the household have?';
+    let qOneAnswers = '{ "Six or More": "0", "Five": "9", "Four": "16", "Three": "25", "Two": "32", "One": "40" }';
+    let qTwo = 'How many members household 12 years old or older have an activated cellular telephone?';
+    let qTwoAnswers = '{ "Three or more": "11", "Two": "7", "One": "3", "NONE": "0" }';
+    let qThree = 'Does the household have a car (for its exclusive use),air conditioner,video camera, or exercise machine?';
+    let qThreeAnswers = '{ "Yes": "0", "No": "100" }';
+    let qFour = 'What is the main construction materials of the floor of the residence?';
+    let qFourAnswers = '{ "Dirt ": "0", "Untreated planks or reeds": "4", "Cement/bricks": "5", "Ceramic tile or granite": "8" }';
+    let qFive = 'Does the household have a place with running water to take a bath or shower?';
+    let qFiveAnswers = '{ "No": "0", "Yes": "3" }';
+    let qSix = 'Is the bathroom inside the residence?';
+    let qSixAnswers = '{ "No": "0", "Yes": "4" }';
+    let qSeven = 'Does the household have a blender, waffle iron/sandwich grill, or electric mixer?';
+    let qSevenAnswers = '{ "No": "0", "Only blender": "3" , "Waffle iron or electric mixer": "8" }';
+    let qEight = 'Does the household have an iron?';
+    let qEightAnswers = '{ "No": "0", "Yes": "5"}';
+    let qNine = 'How many color or plasma/LCD?LED televisions does the household have?';
+    let qNineAnswers = '{ "Two or More": "10", "One": "5", "NONE": "0" }';
+    let qTen = 'How many light bulbs does the household use?';
+    let qTenAnswers = '{ "None, One or Two": "0", "Three": "1", "Four": "2" , "Five": "4", "Six or Seven": "6", "Eight or More": "10"}';
+
+    const wrapper = document.getElementById("concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26");
+    wrapper.addEventListener('click', (event) => {
+        const isButton = event.target.nodeName === 'BUTTON';
+        if (!isButton) {
+            return;
+        }
+	let questionStr = event.target.closest('fieldset').getElementsByTagName('label')[0].innerHTML.split("<")[1];
+        let question = questionStr.substring(questionStr.lastIndexOf(">") + 1)
+        let button = event.target.title;
+
+        if (question.trim() === qOne) {
+            scoreOne = +JSON.parse(qOneAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            $( "#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).last().val(totalScore).trigger("change");
+        }
+	if (question.trim() === qTwo) {
+            scoreTwo = +JSON.parse(qTwoAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            $( "#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).last().val(totalScore).trigger("change");
+        }
+	if (question.trim() === qThree) {
+            scoreThree = +JSON.parse(qThreeAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            $( "#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).last().val(totalScore).trigger("change");
+        }
+	if (question.trim() === qFour) {
+            scoreFour = +JSON.parse(qFourAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            $( "#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).last().val(totalScore).trigger("change");
+        }
+	if (question.trim() === qFive) {
+            scoreFive = +JSON.parse(qFiveAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            $( "#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).last().val(totalScore).trigger("change");
+        }
+	if (question.trim() === qSix) {
+            scoreSix = +JSON.parse(qSixAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            $( "#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).last().val(totalScore).trigger("change");
+        }
+	if (question.trim() === qSeven) {
+            scoreSeven = +JSON.parse(qSevenAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            $( "#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).last().val(totalScore).trigger("change");
+        }
+	if (question.trim() === qEight) {
+            scoreEight = +JSON.parse(qEightAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            $( "#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).last().val(totalScore).trigger("change");
+        }
+	if (question.trim() === qNine) {
+            scoreNine = +JSON.parse(qNineAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+	    $( "#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).last().val(totalScore).trigger("change");
+        }
+	if (question.trim() === qTen) {
+            scoreTen = +JSON.parse(qTenAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+	    $( "#concept-set-e1e6cf92-42c3-11eb-a135-7f82467b6e26 input[type='number']" ).last().val(totalScore).trigger("change");
+        }
+    })
+}
+</script>
+
+
+<script>
+ const promsPpiEcuador = document.getElementById("concept-set-5e8d7984-3130-4c8d-8676-f5e75673d37b");
+ if (promsPpiEcuador) {
+    let scoreOne = 0;
+    let scoreTwo = 0;
+    let scoreThree = 0;
+    let scoreFour = 0;
+    let scoreFive = 0;
+    let scoreSix = 0;
+    let scoreSeven = 0;
+    let scoreEight = 0;
+    let scoreNine = 0;
+    let scoreTen = 0;
+    let totalScore = 0;
+
+    let qOne = 'How many members does the household have?';
+    let qOneAnswers = '{ "Six or More": "0", "Five": "9", "Four": "16", "Three": "25", "Two": "32", "One": "40" }';
+    let qTwo = 'How many members household 12 years old or older have an activated cellular telephone?';
+    let qTwoAnswers = '{ "Three or more": "11", "Two": "7", "One": "3", "NONE": "0" }';
+    let qThree = 'Does the household have a car (for its exclusive use),air conditioner,video camera, or exercise machine?';
+    let qThreeAnswers = '{ "No": "0", "Yes": "100" }';
+    let qFour = 'What is the main construction materials of the floor of the residence?';
+    let qFourAnswers = '{ "Dirt ": "0", "Untreated planks or reeds": "4", "Cement/bricks": "5", "Ceramic tile or granite": "8" }';
+    let qFive = 'Does the household have a place with running water to take a bath or shower?';
+    let qFiveAnswers = '{ "No": "0", "Yes": "3" }';
+    let qSix = 'Is the bathroom inside the residence?';
+    let qSixAnswers = '{ "No": "0", "Yes": "4" }';
+    let qSeven = 'Does the household have a blender, waffle iron/sandwich grill, or electric mixer?';
+    let qSevenAnswers = '{ "No": "0", "Only blender": "3" , "Waffle iron/sandwich grill, or electric mixer(regardless or blender)": "8" }';
+    let qEight = 'Does the household have an iron?';
+    let qEightAnswers = '{ "No": "0", "Yes": "5"}';
+    let qNine = 'How many color or plasma/LCD?LED televisions does the household have?';
+    let qNineAnswers = '{ "Two or More": "10", "One": "5", "NONE": "0" }';
+    let qTen = 'How many light bulbs does the household use?';
+    let qTenAnswers = '{ "None, One or Two": "0", "Three": "1", "Four": "2" , "Five": "4", "Six or Seven": "6", "Eight or More": "10"}';
+
+    const wrapper = document.getElementById("concept-set-5e8d7984-3130-4c8d-8676-f5e75673d37b");
+    wrapper.addEventListener('click', (event) => {
+        const isButton = event.target.nodeName === 'BUTTON';
+        if (!isButton) {
+            return;
+        }
+	let questionStr = event.target.closest('fieldset').getElementsByTagName('label')[0].innerHTML.split("<")[1];
+        let question = questionStr.substring(questionStr.lastIndexOf(">") + 1)
+        let button = event.target.title;
+
+        if (question.trim() === qOne) {
+            scoreOne = +JSON.parse(qOneAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            $( "#concept-set-5e8d7984-3130-4c8d-8676-f5e75673d37b input[type='number']" ).last().val(totalScore).trigger("change");
+        }
+	if (question.trim() === qTwo) {
+            scoreTwo = +JSON.parse(qTwoAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            $( "#concept-set-5e8d7984-3130-4c8d-8676-f5e75673d37b input[type='number']" ).last().val(totalScore).trigger("change");
+        }
+	if (question.trim() === qThree) {
+            scoreThree = +JSON.parse(qThreeAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            $( "#concept-set-5e8d7984-3130-4c8d-8676-f5e75673d37b input[type='number']" ).last().val(totalScore).trigger("change");
+        }
+	if (question.trim() === qFour) {
+            scoreFour = +JSON.parse(qFourAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            $( "#concept-set-5e8d7984-3130-4c8d-8676-f5e75673d37b input[type='number']" ).last().val(totalScore).trigger("change");
+        }
+	if (question.trim() === qFive) {
+            scoreFive = +JSON.parse(qFiveAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            $( "#concept-set-5e8d7984-3130-4c8d-8676-f5e75673d37b input[type='number']" ).last().val(totalScore).trigger("change");
+        }
+	if (question.trim() === qSix) {
+            scoreSix = +JSON.parse(qSixAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            $( "#concept-set-5e8d7984-3130-4c8d-8676-f5e75673d37b input[type='number']" ).last().val(totalScore).trigger("change");
+        }
+	if (question.trim() === qSeven) {
+            scoreSeven = +JSON.parse(qSevenAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            $( "#concept-set-5e8d7984-3130-4c8d-8676-f5e75673d37b input[type='number']" ).last().val(totalScore).trigger("change");
+        }
+	if (question.trim() === qEight) {
+            scoreEight = +JSON.parse(qEightAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            $( "#concept-set-5e8d7984-3130-4c8d-8676-f5e75673d37b input[type='number']" ).last().val(totalScore).trigger("change");
+        }
+	if (question.trim() === qNine) {
+            scoreNine = +JSON.parse(qNineAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            $( "#concept-set-5e8d7984-3130-4c8d-8676-f5e75673d37b input[type='number']" ).last().val(totalScore).trigger("change");
+        }
+	if (question.trim() === qTen) {
+            scoreTen = +JSON.parse(qTenAnswers)[button];
+            totalScore = scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive + scoreSix + scoreSeven + scoreEight + scoreNine + scoreTen;
+            $( "#concept-set-5e8d7984-3130-4c8d-8676-f5e75673d37b input[type='number']" ).last().val(totalScore).trigger("change");
+        }
+    })
+}
+</script>

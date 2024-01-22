@@ -1,0 +1,247 @@
+
+{
+  "observations": {
+    "id": "bahmni.clinical.consultation.observations",
+    "extensionPointId": "org.bahmni.clinical.consultation.board",
+    "type": "link",
+    "label": "Observations",
+    "translationKey": "OBSERVATIONS_BOARD_LABEL_KEY",
+    "url": "concept-set-group/observations",
+    "default": true,
+    "icon": "fa-user-md",
+    "order": 1,
+    "requiredPrivilege": "app:clinical:observationTab"
+  },
+  "diagnosis": {
+    "id": "bahmni.clinical.consultation.diagnosis",
+    "extensionPointId": "org.bahmni.clinical.consultation.board",
+    "type": "link",
+    "label": "Diagnosis",
+    "translationKey": "DIAGNOSIS_BOARD_LABEL_KEY",
+    "url": "diagnosis",
+    "icon": "fa-user-md",
+    "order": 4,
+    "requiredPrivilege": "app:clinical:diagnosisTab"
+  },
+  "bahmniClinicalOrdersPending": {
+    "id": "bahmni.clinical.orders.pending",
+    "extensionPointId": "org.bahmni.clinical.orders",
+    "type": "link",
+    "label": "Pending Orders",
+    "url": "pendingOrders",
+    "icon": "fa-user-md",
+    "order": 2,
+    "requiredPrivilege": "app:radiologyOrders"
+  },
+  "bahmniClinicalPatientsSearchAllActivePatients": {
+    "id": "bahmni.clinical.patients.search.allActivePatients",
+    "extensionPointId": "org.bahmni.patient.search",
+    "type": "config",
+    "extensionParams": {
+      "searchHandler": "emrapi.sqlSearch.activePatients",
+      "translationKey": "MODULE_LABEL_ACTIVE_KEY",
+      "forwardUrl": "#/default/patient/{{patientUuid}}/dashboard"
+    },
+    "label": "Active",
+    "order": 2,
+    "requiredPrivilege": "app:clinical"
+  },
+  "bahmniClinicalPatientsSearchAllPatients": {
+    "id": "bahmni.clinical.patients.search.allPatients",
+    "extensionPointId": "org.bahmni.patient.search",
+    "type": "config",
+    "extensionParams": {
+      "translationKey": "MODULE_LABEL_ALL_KEY",
+      "forwardUrl": "#/default/patient/{{patientUuid}}/dashboard"
+    },
+    "label": "All",
+    "order": 7,
+    "requiredPrivilege": "app:clinical"
+  },
+
+  "bahmniClinicalConceptSetGroupObservationsClinicVisitSurgeon": {
+     "id": "bahmni.clinical.conceptSetGroup.observations.visit.surgeon",
+     "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+     "type": "config",
+     "extensionParams": {
+        "default": true,
+        "conceptName": "Clinic Visit (Surgeon)"
+     },
+     "order": 1,
+     "requiredPrivilege": "app:clinical"
+  },
+  "bahmniClinicalConceptSetGroupObservationsClinicVisitAnesthesia": {
+     "id": "bahmni.clinical.conceptSetGroup.observations.visit.anesthesia",
+     "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+     "type": "config",
+     "extensionParams": {
+        "default": true,
+        "conceptName": "Clinic Visit (Anesthesia)" 
+     },
+     "order": 2,
+     "requiredPrivilege": "app:clinical"
+  },
+  "bahmniClinicalConceptSetGroupObservationsSF12": {
+     "id": "bahmni.clinical.conceptSetGroup.observations.sf_12",
+     "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+     "type": "config",
+     "extensionParams": {
+        "default": true,
+        "conceptName": "SF-12" 
+     },
+     "order": 3,
+     "requiredPrivilege": "app:clinical"
+  },
+  "bahmniClinicalConceptSetGroupObservationsCDCHealthyDays": {
+     "id": "bahmni.clinical.conceptSetGroup.observations.CDC.healthy.days",
+     "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+     "type": "config",
+     "extensionParams": {
+        "default": true,
+        "conceptName": "CDC Healthy Days" 
+     },
+     "order": 4,
+     "requiredPrivilege": "app:clinical"
+  },
+  "bahmniClinicalConceptSetGroupObservationsVASPain": {
+     "id": "bahmni.clinical.conceptSetGroup.observations.VASPain",
+     "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+     "type": "config",
+     "extensionParams": {
+        "default": true,
+        "conceptName": "VAS Pain" 
+     },
+     "order": 5,
+     "requiredPrivilege": "app:clinical"
+  },
+  "bahmniClinicalConceptSetGroupObservationsPPI_ecuador": {
+     "id": "bahmni.clinical.conceptSetGroup.observations.PPI_ecuador",
+     "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+     "type": "config",
+     "extensionParams": {
+        "default": true,
+        "conceptName": "Poverty Probably Index for Ecuador" 
+     },
+     "order": 6,
+     "requiredPrivilege": "app:clinical"
+  },
+  "bahmniClinicalConceptSetGroupObservationsPreOpSurgeon": {
+     "id": "bahmni.clinical.conceptSetGroup.observations.preOpSurgeon",
+     "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+     "type": "config",
+     "extensionParams": {
+        "default": true,
+        "conceptName": "Pre-Op (Surgeon)" 
+     },
+     "order": 7,
+     "requiredPrivilege": "app:clinical"
+  },
+  "bahmniClinicalConceptSetGroupObservationsPreOpAnesthesia": {
+     "id": "bahmni.clinical.conceptSetGroup.observations.preOpAnesthesia",
+     "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+     "type": "config",
+     "extensionParams": {
+        "default": true,
+        "conceptName": "Pre-Op (Anesthesia)" 
+     },
+     "order": 8,
+     "requiredPrivilege": "app:clinical"
+  },
+  "bahmniClinicalConceptSetGroupObservationsOutsideMedicalRecords": {
+     "id": "bahmni.clinical.conceptSetGroup.observations.outside.medical.records",
+     "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+     "type": "config",
+     "extensionParams": {
+        "default": true,
+        "conceptName": "Outside Medical Records" 
+     },
+     "order": 9,
+     "requiredPrivilege": "app:clinical"
+  },
+  "bahmniClinicalConceptSetGroupObservationsIntraOpStaff": {
+     "id": "bahmni.clinical.conceptSetGroup.observations.intraOpStaff",
+     "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+     "type": "config",
+     "extensionParams": {
+        "default": true,
+        "conceptName": "Intra-Op (Staff)" 
+     },
+     "order": 10,
+     "requiredPrivilege": "app:clinical"
+  },
+  "bahmniClinicalConceptSetGroupObservationsPreOpAnesthesia": {
+     "id": "bahmni.clinical.conceptSetGroup.observations.preOpAnesthesia",
+     "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+     "type": "config",
+     "extensionParams": {
+        "default": true,
+        "conceptName": "Intra-Op (Anesthesia)" 
+     },
+     "order": 11,
+     "requiredPrivilege": "app:clinical"
+  },
+  "bahmniClinicalConceptSetGroupObservationsPostOpSurgeon": {
+     "id": "bahmni.clinical.conceptSetGroup.observations.postOpSurgeon",
+     "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+     "type": "config",
+     "extensionParams": {
+        "default": true,
+        "conceptName": "Post-Op (Surgeon)" 
+     },
+     "order": 12,
+     "requiredPrivilege": "app:clinical"
+  },
+  "bahmniClinicalConceptSetGroupObservationsPostOpAnesthesia": {
+     "id": "bahmni.clinical.conceptSetGroup.observations.postOpAnesthesia",
+     "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+     "type": "config",
+     "extensionParams": {
+        "default": true,
+        "conceptName": "Post-Op (Anesthesia)" 
+     },
+     "order": 13,
+     "requiredPrivilege": "app:clinical"
+  },
+  "bahmniClinicalConceptSetGroupObservationsPhysicalTherapy": {
+     "id": "bahmni.clinical.conceptSetGroup.observations.physicalTherapy",
+     "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+     "type": "config",
+     "extensionParams": {
+        "default": true,
+        "conceptName": "Physical Therapy" 
+     },
+     "order": 14,
+     "requiredPrivilege": "app:clinical"
+  },
+  "bahmniClinicalConceptSetGroupObservationsDischarge": {
+     "id": "bahmni.clinical.conceptSetGroup.observations.Discharge",
+     "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+     "type": "config",
+     "extensionParams": {
+        "default": true,
+        "conceptName": "Patient Discharge" 
+     },
+     "order": 15,
+     "requiredPrivilege": "app:clinical"
+  },
+  
+  "bahmniClinicalConceptSetGroupObservationsSecondVitals": {
+    "id": "bahmni.clinical.conceptSetGroup.observations.secondVitals",
+    "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+    "type": "config",
+    "extensionParams": {
+      "conceptName": "Second Vitals",
+      "default": true,
+      "showIf": [
+        "var visitTypes = [];",
+        "if(visitTypes.length === 0) return true;",
+        "var visitTypeName = context.visitType ? context.visitType.name : null;",
+        "return visitTypes.indexOf(visitTypeName) !== -1;"
+      ]
+    },
+    "order": 3,
+    "requiredPrivilege": "app:clinical"
+  }
+}
+
+

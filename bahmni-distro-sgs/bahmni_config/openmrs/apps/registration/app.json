@@ -1,0 +1,112 @@
+{
+        "id": "bahmni.registration",
+        "instanceOf":"bahmni.template.registration",
+        "description": "Bahmni Patient Registration App",
+        "extensionPoints": [
+            {
+                "id": "org.bahmni.registration.patient.search.result.action",
+                "description": "Bahmni Patient Search Result Action"
+            },
+            {
+                "id": "org.bahmni.registration.patient.next",
+                "description": "After Bahmni Patient Registration, forward url configuration"
+            }
+        ],
+        "contextModel": [
+            "patientUuid",
+            "activeVisitUuid"
+        ],
+        "config" : {
+            "patientInformation": {
+                "NextOfKin": { 
+                    "title": "Next Of Kin",
+                    "attributes": [
+                        "impl.relationship",
+                        "impl.relationship2",
+                        "impl.name",
+                        "impl.name2",
+                        "phoneNumber",
+                        "phoneNumber2",
+                        "impl.occupation",
+                        "impl.occupation2",
+                        "impl.email",
+                        "impl.email2"
+                    ]
+              
+                },
+                "hidden": {
+                    "attributes": [
+                    ]
+                },
+                "defaults":  {
+                }
+            },
+            "addressHierarchy": {
+                "showAddressFieldsTopDown": true
+            },
+            "relationshipTypeMap": {
+                "Doctor":"provider",
+                "Parent":"patient"
+            },
+
+            "autoCompleteFields":["familyName", "caste"],
+            "defaultIdentifierPrefix": "SGS",
+            "defaultVisitType": "OPD",
+            "searchByIdForwardUrl": "/patient/{{patientUuid}}",
+            "showMiddleName": true,
+            "showLastName": true,
+            "showBirthTime": false,
+            "showCasteSameAsLastNameCheckbox": false,
+	    "mandatoryPersonAttributes" : ["patientPhoneNumber"],
+            "printOptions": [
+                {
+                    "translationKey": "REGISTRATION_PRINT_REG_CARD_KEY",
+                    "templateUrl": "/bahmni_config/openmrs/apps/registration/registrationCardLayout/print.html",
+                    "shortcutKey": "p"
+                },
+		 {
+                    "translationKey": "REGISTRATION_PRINT_WITH_BARCODE",
+                    "templateUrl": "/bahmni_config/openmrs/apps/registration/registrationCardLayout/printWithBarcode.html",
+                    "shortcutKey": "c"
+                }
+            ],
+"forwardUrlsForVisitTypes": [
+     {
+          "visitType": "OPD",
+          "forwardUrl": "../clinical/index.html#/default/patient/{{patientUuid}}/dashboard?currentTab=DASHBOARD_TAB_GENERAL_KEY",
+          "translationKey": "Enter Visit page details",
+          "shortcutKey": "c"
+      },
+      {
+          "visitType": "IPD",
+          "forwardUrl": "../clinical/index.html#/default/patient/{{patientUuid}}/dashboard?currentTab=DASHBOARD_TAB_GENERAL_KEY",
+          "translationKey": "Enter Visit page details",
+          "shortcutKey": "d"
+      }
+],
+            "conceptSetUI": {
+                "REGISTRATION FEES": {
+                    "required": false,
+                    "label": "Fee"
+                },
+                "FHS": {
+                    "buttonSelect": true
+                },
+                "defaults":{
+                    "FHS": "Present"
+                }
+            },
+            "fieldValidation" : {
+                "familyName" : {"pattern" : "[a-zA-Z ]{0,}", "errorMessage" : "Should contain characters"},
+                "givenName" : {"pattern" : "[a-zA-Z ]{0,}", "errorMessage" : "Should contain characters"},
+                "middleName" : {"pattern" : "[a-zA-Z ]{0,}", "errorMessage" : "Should contain characters"}		
+            },
+            "patientSearch": {
+                "address": {
+                    "label": "Address",
+                    "placeholder": "Enter House No./Street",
+                    "field": "address1"
+                }
+            }
+        }
+}

@@ -1,0 +1,77 @@
+<style>
+.sign {
+  font-weight:bold;
+}
+.sign span {
+  width:5cm;border-bottom:0.1em solid #000;display:inline-block;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+td, th {
+  border: 1px solid #FFFFFF;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+#additionalComments {
+  width: 99%;
+}
+@media screen {
+#additionalComments {
+      display: none;
+  }
+#commentsLabel{
+     display: none;  
+  }
+.sign {
+  display: none;
+  }
+}
+@media print {
+#Anesthesia{
+  display: none;
+  }
+tr[id='Detailed Report']{
+  display: none;
+  }
+}
+</style>
+<h2 class="section-title"> Operative Report</h2>
+<table>
+	<tbody ng-repeat="obsGroup in observations">
+		<tr ng-repeat="obsx in obsGroup.groupMembers"  id = "{{obsx.conceptNameToDisplay}}">
+			<td style="width:140px;" class = "{{obsx.conceptNameToDisplay}}">
+				<strong>{{obsx.conceptNameToDisplay}}</strong>
+			</td>
+			<td>
+                            	<span ng-if="obsx.type == 'Text'" >{{obsx.value}}</span>
+				<span ng-if="obsx.type == 'Date'" >{{obsx.value | bahmniDate}}</span>
+                                <span ng-if="obsx.type == 'Datetime'" >{{obsx.value}}</span>
+				<span ng-if="obsx.type == 'Coded'" >{{obsx.value.name}}</span>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<br/>
+<label id = "commentsLabel"><strong>Any other procedures and dates</strong></label>
+<textarea rows="5" id = "additionalComments"></textarea>
+<br/><br/>
+<label id = "commentsLabel"><strong>Medications (not including analgesics or diet supplements)</strong></label>
+<textarea rows="5" id = "additionalComments"></textarea>
+<br/><br/>
+<label id = "commentsLabel"><strong>Dressings: No Dressings  /  Dressings to be removed in 10 days time at home</strong></label>
+<textarea rows="3" id = "additionalComments"></textarea>
+<br/><br/>
+<label id = "commentsLabel"><strong>Weight bearing status:  Full,  Partial,  Toe Touch,  Non-weight bearing   LEFT / RIGHT</strong></label>
+<textarea rows="3" id = "additionalComments"></textarea>
+
+<br/><br/><br/><br/><br/><br/>
+<div class="sign">
+    Senior Nurse signature:<span></span>Date:<span></span>(DD-MM-YYYY)
+</div>

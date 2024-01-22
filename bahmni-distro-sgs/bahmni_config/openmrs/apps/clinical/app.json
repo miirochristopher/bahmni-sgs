@@ -1,0 +1,233 @@
+{
+    "id": "bahmni.clinical",
+    "extensionPoints": [
+        {
+            "id": "org.bahmni.clinical.consultation.board",
+            "description": "Bahmni Clinical Consultation Page"
+        },
+        {
+            "id": "org.bahmni.clinical.conceptSetGroup.*",
+            "description": "Define conceptsets part of a conceptset group"
+        },
+        {
+            "id": "org.bahmni.clinical.orders",
+            "description": "Bahmni Orders Page"
+        },
+        {
+            "id": "org.bahmni.patient.search",
+            "description": "Bahmni Patient search, lookups Page"
+        }
+    ],
+    "contextModel": [
+        "patientUuid",
+        "visitUuid"
+    ],
+    "config": {
+        "enablePACSOptions":true,
+        "quickPrints":false,
+        "networkConnectivity" : {
+            "showNetworkStatusMessage": true,
+            "networkStatusCheckInterval": 5000,
+            "locales" : [
+                { "locale" : "fr", "css" : "offline-language-french"},
+                { "locale" : "es", "css": "offline-language-spanish"},
+                { "locale" : "pt", "css": "offline-language-portuguese-brazil"}
+            ]
+        },
+    	"diagnosisStatus": "Inactive",
+            "program": {
+                "patientInformation": {
+                    "ageLimit": 100
+                }
+            },
+            "patientContext": {
+        		"programAttributes": [
+            		"Id_Number",
+            		"Doctor",
+            		"Stage"
+        		],
+        		"personAttributes": [
+            		"class",
+            		"caste"
+        		],
+        		"additionalPatientIdentifiers": [
+           			"National ID"
+       		],
+        		"preferredIdentifier": "Id_Number"
+    	},
+        "obsIgnoreList": [
+            "REGISTRATION FEES",
+            "COMMENTS",
+            "Patient file"
+        ],
+        "otherInvestigationsMap": {
+            "Radiology": "Radiology Order",
+            "Endoscopy": "Endoscopy Order"
+        },
+        "allowConsultationWhenNoOpenVisit": false,
+        "defaultVisitType": "OPD",
+        "visitTypeForRetrospectiveEntries": "Special OPD",
+        "maxConceptSetLevels": 3,
+        "allowOnlyCodedDiagnosis": false,
+        "conceptSetUI": {
+            "All Observation Templates": {
+                "showPanelView": false
+            },
+            "Chief Complaint Data": {
+                "autocomplete":true,
+                "codedConceptName":"Chief Complaint",
+                "nonCodedConceptName":"Non-Coded Chief Complaint",
+                "durationRequired": false,
+                "allowAddMore": true
+            },
+"What is the main material of the floor of the residence?": {
+  "autocomplete" : true,
+  "multiSelect" : true
+},
+	    "Surgical Priority":{
+		"required": true
+	    },
+            "Total Score": {
+                "required": false
+            },
+	    "How many members does the household have?": {
+                "required": false
+            },
+            "older have an activated cellular telephone?": {
+                "required": false
+            },
+            "Does the household have a car": {
+                "required": false
+            },
+            "what is the main material of the floor of the residence?": {
+                "required": false
+            },
+            "a place with running water to take a bath or shower?": {
+                "required": false
+            },
+            "Is the bathroom inside the residence?": {
+                "required": false
+            },
+            "Does the household have a blender": {
+                "required": false
+            },
+            "Does the household have an iron?": {
+                "required": false
+            },
+            "How many color or plasma/LCD?": {
+                "required": false
+            },
+            "How many light bulbs does the household use?": {
+                "required": false
+            },
+            "How many household members age?": {
+                "required": true
+            },
+            "The highest educational level?": {
+                "required": true
+            },
+            "What is the main occupation?": {
+                "required": true
+            },
+            "Household members receive a salary?": {
+                "required": true
+            },
+            "How many rooms use as bedrooms?": {
+                "required": true
+            },
+            "What is the main construction material?": {
+                "required": true
+            },
+            "Household’s source of water?": {
+                "required": true
+            },
+
+            "Household member have a refrigerator?": {
+                "required": true
+            },
+            "Household member have a stove?": {
+                "required": true
+            },
+            "Household member have a working television?": {
+                "required": true
+            }, 
+            "Posture": {
+                "buttonSelect": true
+            },
+            "P/A Presenting Part": {
+                "multiSelect": true
+            },
+            "Chief Complaint": {
+                "autocomplete" : true,
+                "multiSelect" : true
+            },
+            "FHS": {
+                "buttonSelect": true
+            },
+            "P/S (Per Speculum) - Cervix": {
+                "grid": true
+            },
+            "Anaemia, Stopped Since When": {
+                "conciseText": true
+            },
+            "Tuberculosis Intake Template": {
+                "computeDrugs": true
+            },
+            "Set1": {
+                "allowAddMore": true
+            },
+            "Set2": {
+                "allowAddMore": true
+            },
+            "Coded3": {
+                "multiSelect": true
+            },
+            "Image": {
+                "allowAddMore": true
+            },
+            "Gynaecology, Gravida": {
+                "stepper": true
+            },
+            "Accepted Family Planning methods": {
+                "multiSelect": true
+            },
+            "Patient Satisfaction Score":
+            {
+              "dropdown": true
+            },
+            "VAS Pain":
+            {
+              "dropdown": true
+            },
+
+	    "Block laterality":
+            {
+              "multiSelect": true
+            },
+           
+            "Equipment Needed":
+            {
+              "multiSelect": true,
+	      "buttonSelect": true
+            },     
+	    "Scheduled surgery":{
+		"allowFutureDates": true
+	    },
+            "defaults": {
+                "Number of living children": 1,
+                "Accepted Family Planning methods": [
+                    "Condoms",
+                    "Pills"
+                ],
+                "Pain management given": true,
+                "Safe Abortion, Remarks": "Remarks",
+                "Malaria, Death Date": "2015-12-01"
+            }
+        },
+        "visitPage": {
+            "observationDisplay": {
+                "conceptNames": []
+            }
+        }
+    }
+}

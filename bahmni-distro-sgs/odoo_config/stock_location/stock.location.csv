@@ -1,0 +1,3 @@
+"id","name","usage","comment"
+"init.stock_location_pharmacy","Pharmacy Stock","Internal Location",
+"init.stock_location_emergency","Emergency Stock","Internal Location",

@@ -1,0 +1,16 @@
+{
+  "homePage": {
+    "header_text": "<b>WELCOME TO<br />SGS EMR & HOSPITAL SERVICE",
+    "logo": "/bahmni_config/openmrs/apps/home/sgs-logo.png",
+    "title_text": " "
+  },
+  "loginPage": {
+    "logo": "/bahmni_config/openmrs/apps/home/sgs-logo.png",
+    "bottomBanner": "/bahmni_config/openmrs/apps/home/bottom_banner.png",
+    "showHeaderText": true,
+    "showTitleText": false
+  },
+  "helpLink": {
+    "url": "https://www.logiic.com/"
+  }
+}
