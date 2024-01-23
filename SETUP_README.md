@@ -1,6 +1,6 @@
 ## Set up env variables
 
-export DISTRO_PATH=/workspace/bahmni-docker-compose/bahmni-distro-sgs && \
+export DISTRO_PATH=/workspace/bahmni-sgs/bahmni-docker-compose/bahmni-distro-sgs && \
 export OPENMRS_CONFIG_PATH=$DISTRO_PATH/openmrs_config && \
 export BAHMNI_CONFIG_PATH=$DISTRO_PATH/bahmni_config && \
 export OPENMRS_MODULES_PATH=$DISTRO_PATH/openmrs_modules && \
