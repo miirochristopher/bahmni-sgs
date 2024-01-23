@@ -1,0 +1,6 @@
+[submodule "openmrs-config-sgs"]
+	path = openmrs-config-sgs
+	url = https://github.com/miirochristopher/openmrs-config-sgs.git
+[submodule "bahmni-config-sgs"]
+	path = bahmni-config-sgs
+	url = https://github.com/I-TECH-UW/bahmni-config-sgs.git
